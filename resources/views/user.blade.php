@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.dashboard')
 
 @section('container')
     <h2>Halaman Data User</h2><hr>

@@ -10,7 +10,9 @@
     
         <h2 class=" ">Welcome to Dashboard Buku Besar PT. Samalogi</h2><hr>
         <h5 class=" ">Data Perolehan Proyek</h5>
-        <button type="button" class="btn btn-primary btn-sm">Tambah Data</button>
+        
+       <!--  Tambah Data -->
+
     </div>
 
     <table class="table mt-2">

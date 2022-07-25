@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.dashboard')
 
 @section('container')
 <div class="container mt-3">

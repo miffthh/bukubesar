@@ -6,6 +6,8 @@
     <h5>Data Akun</h5>
 </div>
 
+<button type="button" class="btn btn-primary container-auto">Tambah Data</button>
+
 <table class="table">
     <thead class="table-info">
     <tr align="center">
