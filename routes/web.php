@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AkunController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 
@@ -20,11 +21,11 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/akun', function () {
-    return view('akun', [
-        "title" => "Akun"
-    ]);
-});
+Route::get('/akun', [AkunController::class, 'index']) -> name('akun');
+
+Route::get('/tambahakun', [AkunController::class, 'tambahakun']) -> name('tambahakun');
+Route::post('/insertakun', [AkunController::class, 'insertakun']) -> name('insertakun');
+
 
 Route::get('/dproyek', function () {
     return view('dproyek', [

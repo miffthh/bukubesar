@@ -19,8 +19,20 @@ class AkunController extends Controller
      */
     public function index()
     {
-        $data = Akun::all();
-        return view('akuns',compact('data'));
+        $data=Akun::all();        
+        return view('akun',compact('data'));
+    }
+
+    public function tambahakun()
+    {      
+        return view('tambahdataakun');
+    }
+
+    public function insertakun(Request $request)
+    {    
+        //dd($request->all());
+        Akun::create($request->all());
+        return redirect()->route('akun');
     }
 
     /**
