@@ -14,8 +14,9 @@ class CreateAkunsTable extends Migration
     public function up()
     {
         Schema::create('akuns', function (Blueprint $table) {
-            $table->id('kode_akun');
-            $table->string('nama_akun');
+            $table->id('kode_akun');            
+            $table->string('nama_perkiraan');
+            $table->string('nama_group');
             $table->timestamps();
         });
     }

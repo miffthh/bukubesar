@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Akun;
 use Exception;
+use RealRashid\SweetAlert\Facades\Alert;
 use PhpParser\Node\Stmt\Catch_;
 use PhpParser\Node\Stmt\TryCatch;
 
@@ -19,20 +20,21 @@ class AkunController extends Controller
      */
     public function index()
     {
-        $data=Akun::all();        
-        return view('akun',compact('data'));
+        $data = Akun::all();
+        return view('akun', compact('data'), ["title" => "Data Akun"]);
     }
 
     public function tambahakun()
-    {      
-        return view('tambahdataakun');
+    {
+        return view('tambahdataakun', ["title" => "Data Akun"]);
     }
 
     public function insertakun(Request $request)
-    {    
-        //dd($request->all());
+    {
+
         Akun::create($request->all());
-        return redirect()->route('akun');
+        Alert::toast('Data Berhasil ditambahkan', 'success');
+        return redirect()->route('akun', ["title" => "Data Akun"]);
     }
 
     /**
@@ -44,11 +46,10 @@ class AkunController extends Controller
     {
         $data = Akun::all();
 
-        if($data){
-            return ApiFormatters::createApi(200, 'Success',$data);
-        }else{
+        if ($data) {
+            return ApiFormatters::createApi(200, 'Success', $data);
+        } else {
             return ApiFormatters::createApi(400, 'Failed');
-
         }
     }
 
@@ -63,22 +64,27 @@ class AkunController extends Controller
         try {
             $request->validate([
                 'kode_akun' => 'required',
-                'nama_akun' => 'required',
+                'nama_perkiraan' => 'required',
+                'nama_group' => 'required',
+            ], [
+                'kode_akun.required' => 'Isi kode akun dengan benar.',
+                'nama_perkiraan.required' => 'Isi nama perkiraan dengan benar.',
+                'nama_group.required' => 'Isi nama group dengan benar.'
             ]);
             $akun = Akun::create([
                 'kode_akun' => $request->kode_akun,
-                'nama_akun' => $request->nama_akun
+                'nama_perkiraan' => $request->nama_perkiraan,
+                'nama_group' => $request->nama_group
             ]);
 
-            $data =Akun::where('id','=',$akun->id)->get();
+            $data = Akun::where('id', '=', $akun->id)->get();
 
-            if($data){
-                return ApiFormatters::createApi(200, 'Success',$data);
-            }else{
+            if ($data) {
+                return ApiFormatters::createApi(200, 'Success', $data);
+            } else {
                 return ApiFormatters::createApi(400, 'Failed');
-    
             }
-        } catch (Exception $error){
+        } catch (Exception $error) {
             return ApiFormatters::createApi(400, 'Failed');
         }
     }

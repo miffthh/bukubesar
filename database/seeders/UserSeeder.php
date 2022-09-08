@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
-use app\Models\User;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -15,13 +18,16 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        User::create([
+        
+            User::create ([              
+            'nidn' => '32123',
             'name' => 'Admin Aplikasi',
-            'level' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => bcrypt('admin'),            
-            'remember_token' => Str::random(60),            
-        ]);
+            'jenis_kelamin' => 'Laki-Laki',
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => Carbon::now(),
+            'password' => bcrypt('admin123'),
+            'role' => 'admin',            
+            'remember_token' => Str::random(60),
+            ]);
     }
 }
