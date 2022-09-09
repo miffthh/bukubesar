@@ -1,31 +1,35 @@
 @extends('layout.template')
 
-@section('container')
-    <div class="container">
+@section('container')    
         <div class="card">
             <div class="card-body mt-3">
                 <h3>Halaman Buku Kas Harian</h3>
                 <hr>
                 <h6>Data Buku Kas Harian</h6>
             </div>
-        </div>
-    </div>
-    <div class="row">
+        </div>    
         <div class="container">
             @if (auth()->user()->role == 'Admin')
-                <a href="/tambahdatabks" class="btn btn-primary mb-3">Tambah Data</a>
+                <a href="/tambahdatabks" class="btn btn-primary btn-sm"><i class="bi bi-folder-plus"></i> Tambah Data</a>
             @endif
-            <a href="/exporrtpdf" target="_blank" class="btn btn-info mb-3">Export PDF </a>
-            <a href="/cetakkform" class="btn btn-info mb-3 ">Export PDF Per Tgl </a>
-            <a href="/exporrtexcel" target="_blank" class="btn btn-info mb-3">Export Excel </a>
-            <a href="/bks" class="btn btn-info mb-3">Refresh</a>
-            <div class="container row col-lg-6 md-4 ms-auto">
-                <form action="/periodee" method="get" class="d-flex">
-                    <input type="date" name="tgl_mulai" class="form-control datpicker mb-2 ">
-                    <input type="date" name="tgl_selesai" class="form-control datepicker ms-2 mb-2 ">
-                    <button type="submit" name="filter_tgl" class="btn btn-success ms-2 mb-2 ">Filter</button>
-                </form>
+            <a href="/exporrtpdf" target="_blank" class="btn btn-danger btn-sm"><i class="bi bi-file-pdf"></i> Export PDF
+            </a>
+            <a href="/cetakkform" class="btn btn-warning btn-sm"><i class="bi bi-box-arrow-in-up-right"></i> Export PDF Per Tgl </a>
+            <a href="/exporrtexcel" target="_blank" class="btn btn-success btn-sm"><i class="bi bi-file-excel"></i> Export Excel </a>
+            <a href="/bks" class="btn btn-info btn-sm"><i class="bi bi-arrow-repeat"></i>Refresh</a>
+            
+            <!-- Search Data -->
+            <div class="row g-3 align-items-center d-flex flex-row-reverse mb-3">
+                <div class="col-auto">
+                    <form action="/bks" method="get">
+                        <input type="search" class="form-control" name="search" id="exampleFormControlInput1"
+                            placeholder="Ketik perkiraan">
+                    </form>
+                </div>
             </div>
+        </div>
+        <!-- End Search Data -->
+
             <div class="card">
                 <div class="card-body">
                     <table class="table table-sm">
@@ -80,9 +84,9 @@
                                     @if (auth()->user()->role == 'Admin')
                                         <th>
                                             <a href="{{ url('tampilkandatabks/' . $row->id) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
+                                                class="btn btn-info btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
                                             <a href="#" class="btn btn-danger btn-sm delete"
-                                                data-id="{{ $row->id }}">Hapus</a>
+                                                data-id="{{ $row->id }}"><i class="bi bi-trash3"></i> Hapus</a>
                                         </th>
                                     @endif
                                 </tr>
@@ -132,80 +136,4 @@
 
                 });
             </script>
-
-
-
-            {{-- <script type="text/javascript">
-    function isi_otomatis(){
-        var nim = $("#id").val();
-        $.ajax({
-            url: 'ajax.php',
-            data:"id="+id ,
-        }).success(function (data) {
-            var json = data,
-            obj = JSON.parse(json);
-            $('#tanggal').val(obj.tanggal);
-            $('#perkiraan').val(obj.perkiraan);
-            $('#reff').val(obj.reff);
-            $('#kode_akun').val(obj.kode_akun);
-            $('#debit').val(obj.debit);
-            $('#kredit').val(obj.kredit);
-            $('#balance').val(obj.balance);
-            $('#kode_proyek').val(obj.kode_proyek);
-            $('#nama_perkiraan').val(obj.nama_perkiraan);
-            $('#nama_group').val(obj.nama_group);
-        });
-    }
-</script> --}}
-
-            {{-- <script type="text/javascript">
-    $('.cari').select2({
-      placeholder: 'Cari...',
-      ajax: {
-        url: '/cari',
-        dataType: 'json',
-        delay: 250,
-        processResults: function (data) {
-          return {
-            results:  $.map(data, function (item) {
-              return {
-                text: item.email,
-                id: item.id
-              }
-            })
-          };
-        },
-        cache: true
-      }
-    });
-  
-  </script> --}}
-            {{-- <script type="text/javascript">
-    $(document).ready(function() {
-      $.ajaxSetup({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
-        
-      $("input[name='id']").keypress(function(e){
-         
-         if(e.which == 13){
-           e.preventDefault();
-           var id = $(this).val();
-           var url = "{{ url('/tampilkandatabks') }}"+'-'+id;
-     
-           $.ajax({
-             type:'get',
-             dataType:'json',
-             url:url,
-             success:function(data){
-               console.log(data);
-             
-             }
-           });
-         }
-       })
-    })  
-</script> --}}
         @endpush

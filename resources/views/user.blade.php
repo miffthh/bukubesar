@@ -1,65 +1,53 @@
 @extends('layout.template')
 
 @section('container')
-    <div class="container">
-        <div class="card">
-            <div class="card-body mt-3">
-                <h3>Halaman User</h3>
-                <hr>
-                <h6>Data User</h6>
-            </div>
+    <div class="card">
+        <div class="card-body mt-3">
+            <h3>Halaman User</h3>
+            <hr>
+            <h6>Data User</h6>
         </div>
     </div>
 
-    <div class="row">
-        <div class="container">
-            <a href="/tambahuser" class="btn btn-primary mb-3">Tambah Data</a>
-            <div class="card">
-                <div class="card-body">
-                    <table class="table table-sm">
-                        <thead class="table-info" id="records">
-                            <tr align="center">
-                                <th cscope="row"> No</th>
-                                <th>NIDN</th>
-                                <th>Name</th>
-                                <th>Jenis Kelamin</th>
-                                <th>Email</th>
-                                {{-- <th>Password</th> --}}
-                                <th>Level</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $no = 1;
-                            @endphp
-                            @foreach ($user as $row)
-                                <tr align="center">
-                                    <th cscope="row">{{ $no++ }}</th>
-                                    <th>{{ $row->nidn }}</th>
-                                    <th>{{ $row->name }}</th>
-                                    <th>{{ $row->jenis_kelamin }}</th>
-                                    <th>{{ $row->email }}</th>
-                                    {{-- <th>{{ $row->password }}</th> --}}
-                                    <th>{{ $row->role }}</th>
-                                    <th>
-                                        <a href="{{ url('tampilkandatauser/' . $row->id) }}"
-                                            class="btn btn-primary btn-sm">Edit</a>
-                                        <a href="#" class="btn btn-danger btn-sm delete"
-                                            data-id="{{ $row->id }}">Hapus</a>
-                                    </th>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {{-- <table class="table">
-                    <thead class="table-info">
-                        
+    <div class="container">
+        <a href="/tambahuser" class="btn btn-primary btn-sm mb-3"><i class="bi bi-folder-plus"></i> Tambah Data</a>
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-sm">
+                    <thead class="table-info" id="records">
+                        <tr align="center">
+                            <th cscope="row"> No</th>
+                            <th>NIDN</th>
+                            <th>Name</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Email</th>
+                            {{-- <th>Password</th> --}}
+                            <th>Level</th>
+                            <th>Aksi</th>
+                        </tr>
                     </thead>
-                    <tbody class="table-cyan-100 table-striped">
-                       
+                    <tbody>
+                        @php
+                            $no = 1;
+                        @endphp
+                        @foreach ($user as $row)
+                            <tr align="center">
+                                <th cscope="row">{{ $no++ }}</th>
+                                <th>{{ $row->nidn }}</th>
+                                <th>{{ $row->name }}</th>
+                                <th>{{ $row->jenis_kelamin }}</th>
+                                <th>{{ $row->email }}</th>
+                                {{-- <th>{{ $row->password }}</th> --}}
+                                <th>{{ $row->role }}</th>
+                                <th>
+                                    <a href="{{ url('tampilkandatauser/' . $row->id) }}" class="btn btn-info btn-sm"><i
+                                            class="bi bi-pencil-square"></i> Edit</a>
+                                    <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $row->id }}"><i
+                                            class="bi bi-trash3"></i> Hapus</a>
+                                </th>
+                        @endforeach
                     </tbody>
-                </table> --}}
-                </div>
+                </table>
             </div>
         </div>
     </div>

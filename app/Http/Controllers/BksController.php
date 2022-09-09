@@ -15,9 +15,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BksController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bk = Bks::with('akun', 'dproyek')->simplePaginate(15);
+        if ($request->has('search')) {
+            $bk = Bks::where('perkiraan', 'LIKE', '%' . $request->search . '%')->simplePaginate(15);
+        } else {
+            $bk = Bks::with('akun', 'dproyek')->simplePaginate(15);
+        }
         return view('bks', compact('bk'), ["title" => "Buku Kas Harian"]);
     }
 
@@ -53,7 +57,6 @@ class BksController extends Controller
             'nama_perkiraan' => $request->nama_perkiraan,
             'nama_group' => $request->nama_group,
         ]);
-        // dd($pp);   
         Alert::toast('Data Berhasil ditambahkan', 'success');
 
         return redirect()->route('bks');
@@ -66,7 +69,6 @@ class BksController extends Controller
         $np = akun::all();
         $ng = akun::all();
         $kp = dproyek::all();
-        // dd($bk);
         return view('tampilkandatabks', compact('bk', 'ak', 'kp', 'np', 'ng'), ["title" => "Buku Kas Harian"]);
     }
 
@@ -96,8 +98,6 @@ class BksController extends Controller
     public function exporrtpdf()
     {
         $bk = Bks::all();
-
-        // view()->share('pp', $pp);
         $pdf = PDF::loadview('bks-pdf', compact('bk'));
 
         return $pdf->stream('bk.pdf');
@@ -115,7 +115,6 @@ class BksController extends Controller
         $bk = Bks::where('tanggal', '>=', date('Y-m-d', strtotime($request->tgl_mulai)))
             ->where('tanggal', '<=', date('Y-m-d', strtotime($request->tgl_selesai)))
             ->get();
-        // dd($bm);
         $pdf = PDF::loadview('bks-pdf', compact('bk'), ["title" => "Buku Kas Harian"]);
 
         return $pdf->stream('bk.pdf');
@@ -136,48 +135,4 @@ class BksController extends Controller
 
         return view('bks', compact('bk', 'ak', 'kp'), ["title" => "Buku Kas Harian"]);
     }
-
-    // public function cari(Request $request, $id)
-    // {
-    //     if ($request->has('id')) {
-    //         $cari = $request->id;
-    //         $data = DB::table('bks')->select('id', 'perkiraan')->where('perkiraan', 'LIKE', '%$cari%')->get();
-    //         return response()->json($data);
-    //     }
-    // }
-
-    // public function autocomplate(Request $request){
-    //     if($request->has('bks')){
-    //         return Bks::where('nama_perkiraan','like','%'.$request->input('bks').'%')->get();
-    //     }
-    // }
-
-    // public function create(){
-    //     return view('bks');
-    // }
-
-
-    // public function indexxx()
-    // {
-    //     return view('bks');
-    // }
-
-    // public function autocomplete(Request $request)
-    // {
-    //     $data = Bks::select("kode_akun")
-    //             ->where("kode_akun","LIKE","%{$request->query}%")
-    //             ->get();
-
-    //     return response()->json($data);
-    // }
-
-    // public function bkss ($id)
-    // {
-    //     $bk = Bks::where('id',$id)->first();
-
-    //     return response()->json([
-    //         'data'=>$bk
-    //     ]);
-    // }
-
 }

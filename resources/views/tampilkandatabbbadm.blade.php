@@ -35,7 +35,7 @@
                         <label type="text" id="kode_akun" class="mt-3">Kode Akun</label>
                     </div>
                     <div class="form-group">
-                        <select class="form-control select" style="width: 100%;" name="kode_akun" id="kode_akun">
+                        <select class="form-select" style="width: 100%;" name="kode_akun" id="kode_akun">
                             <option selected>{{ old('kode_akun', $bb->kode_akun) }}</option>
                             @foreach ($ak as $bka)
                                 <option value="{{ $bka->kode_akun }}">{{ $bka->kode_akun }}</option>
@@ -56,7 +56,7 @@
                                 aria-describedby="emailHelp" value="{{ old('kredit', $bb->kredit) }}">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    <button type="submit" class="btn btn-success mt-3"><i class="bi bi-upload"></i> Update</button>
             </form>
         </div>
     </div>

@@ -23,10 +23,15 @@ class PproyekController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('search')) {
+            $pp = pproyek::where('kode_akun', 'LIKE', '%' . $request->search . '%')->simplePaginate(15);
+        } else {
+            $pp = pproyek::with('akun', 'dproyek')->simplePaginate(15);
+        }
 
-        $pp = pproyek::with('akun', 'dproyek')->simplePaginate(15);
+
         return view('pproyek', compact('pp'), ["title" => "Perolehan Proyek"]);
     }
     public function tambahdatapproyek()
@@ -83,7 +88,6 @@ class PproyekController extends Controller
     {
         $pp = pproyek::all();
 
-        // view()->share('pp', $pp);
         $pdf = PDF::loadview('pproyek-pdf', compact('pp'));
 
         return $pdf->stream('pp.pdf');
@@ -100,7 +104,6 @@ class PproyekController extends Controller
         $pp = pproyek::where('tanggal', '>=', date('Y-m-d', strtotime($request->tgl_mulai)))
             ->where('tanggal', '<=', date('Y-m-d', strtotime($request->tgl_selesai)))
             ->get();
-        // dd($bm);
         $pdf = PDF::loadview('pproyek-pdf', compact('pp'), ["title" => "Perolehan Proyek"]);
 
         return $pdf->stream('pp.pdf');

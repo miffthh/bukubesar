@@ -35,16 +35,17 @@
 
 <body>
     <table id="customers">
-        <tr>                
-            <th colspan="6" rowspan="1"><strong>REKAPITULASI HARGA POKOK PODUKSI</strong></th>            
+        <tr align="center">
+            <th colspan="6" rowspan="1"><strong>REKAPITULASI HARGA POKOK PODUKSI</strong></th>
         </tr>
-            <tr>
-                <th colspan="6" rowspan="1"><strong> PEROLEHAN PROYEK</strong></th>
-            </tr>
-            <tr>
-                <th colspan="6" rowspan="1"><strong> PT. SAVANA MADANI TEKNOLOGI</strong></th>
-            </tr>
-            <tr>
+        <tr align="center">
+            <th colspan="6" rowspan="1"><strong> PEROLEHAN PROYEK</strong></th>
+        </tr>
+        <tr align="center">
+            <th colspan="6" rowspan="1"><strong> PT. SAVANA MADANI TEKNOLOGI</strong></th>
+        </tr>
+        <tr></tr>
+        <tr>
             <th>No</th>
             <th>Tanggal</th>
             <th>Kode Akun</th>
@@ -71,8 +72,8 @@
             </tr>
         @endforeach
         <tr>
-        <th colspan="5"><strong>Total</strong></th>        
-        <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>        
+            <th colspan="5"><strong>Total</strong></th>
+            <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>
         </tr>
     </table>
 

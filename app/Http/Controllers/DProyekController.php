@@ -19,7 +19,6 @@ class DProyekController extends Controller
     }
     public function insertdatadp(Request $request)
     {
-        // dd($request->all());
         DProyek::create($request->all());
         Alert::toast('Data Berhasil ditambahkan', 'success');
         return redirect()->route('dproyek', ["title" => "Data Proyek"]);

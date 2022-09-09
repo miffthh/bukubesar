@@ -1,7 +1,7 @@
 @extends('layout.template')
 
 @section('container')
-    <div class="container mt-3">
+    <div class="container">
         <h3>Halaman Biaya Administrasi & Umum</h3>
         <hr>
 
@@ -35,8 +35,8 @@
                         <label type="text" id="kode_akun" class="mt-3">Kode Akun</label>
                     </div>
                     <div class="form-group">
-                        <select class="form-control select" style="width: 100%;" name="kode_akun" id="kode_akun">
-                            <option selected>Pilih Kode Akun</option>
+                        <select class="form-select" style="width: 100%;" name="kode_akun" id="kode_akun">
+                            <option selected>-- Pilih --</option>
                             @foreach ($ak as $bk)
                                 <option value="{{ $bk->kode_akun }}">{{ $bk->kode_akun }}</option>
                             @endforeach
@@ -56,17 +56,8 @@
                                 aria-describedby="emailHelp">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    <button type="submit" class="btn btn-success mt-3"><i class="bi bi-save2"></i> Simpan</button>
             </form>
         </div>
     </div>
 @endsection
-{{-- <script type="text/javascript">
-    $(function() {
-    //autocomplate
-    $("#id_buku").autocomplete({
-    source: "<?php echo base_url(); ?>/tambahdatabbadm",
-    minLength: 1
-    });
-    });
-    </script> --}}

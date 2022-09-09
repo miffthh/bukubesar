@@ -51,8 +51,9 @@ class PproyekExport implements FromView, WithHeadings, WithStyles, ShouldAutoSiz
     {
         return [
             // Style the first row as bold text.
-            4    => ['font' => ['bold' => true]],
-
+            5    => ['font' => ['bold' => true]],
+            '1:3'  => ['alignment' => ['horizontal' =>  \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,]],
+            '23'  => ['alignment' => ['horizontal' =>  \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,]],
 
             // // Styling a specific cell by coordinate.
             // '2' => ['font' => ['italic' => true]],

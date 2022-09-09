@@ -1,19 +1,14 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="/" class="logo d-flex align-items-center">
-            <img src="../img/LOGOp-.png" alt="" width="200" height="auto">
+        <a href="/" class=" d-flex align-items-center">
+            <img src="../img/LOGOp-.png" alt="" width="255" height="auto">
             {{-- <span class="d-none d-lg-block">Samalogi</span> --}}
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    {{-- <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div> --}}
+
     <div class="mt-3 ms-2">
         <h3>Selamat Datang {{ auth()->user()->name }}</h3>
     </div><!-- End Search Bar -->

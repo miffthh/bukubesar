@@ -51,6 +51,8 @@ class BksExport implements FromView, ShouldAutoSize, WithHeadings, WithStyles
             // Style the first row as bold text.
             4    => ['font' => ['bold' => true]],
 
+            '1:2'  => ['alignment' => ['horizontal' =>  \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,]],
+            '22'  => ['alignment' => ['horizontal' =>  \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,]],
 
             // // Styling a specific cell by coordinate.
             // '2' => ['font' => ['italic' => true]],

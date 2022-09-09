@@ -36,13 +36,13 @@
 <body>
 
     <table id="customers">
-        <thead class="table-info">        
+        <thead class="table-info">
             <tr>
                 <th colspan="6" rowspan="1"><strong>REKAPITULASI BUKU BESAR</strong></th>
             </tr>
             <tr>
-                <th colspan="6" rowspan="1"><strong>BIAYA MARKETING PROYEK</strong></th>                   
-            </tr> 
+                <th colspan="6" rowspan="1"><strong>BIAYA MARKETING PROYEK</strong></th>
+            </tr>
             <tr>
                 <th colspan="6" rowspan="1"><strong>PT. SAVANA MADANI TEKNOLOGI</strong></th>
             </tr>

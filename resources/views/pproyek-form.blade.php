@@ -6,7 +6,6 @@
             <div class="card-body mt-3">
                 <h4>Halaman Cetak PDF Perolehan Proyek Per Tanggal</h4>
                 <hr>
-                {{-- <h6>CetaData Biaya Marketing</h6> --}}
             </div>
         </div>
     </div>
@@ -19,7 +18,7 @@
                     <label for="tgl_selesai" class="ms-2">Sampai Tanggal</label>
                     <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control datepicker d-flex ms-2">
                     <button target="blank" type="submit" name="filter_tgl"
-                        class="btn btn-success datpicker ms-2">Cetak</button>
+                        class="btn btn-success datpicker ms-2"><i class="bi bi-printer"></i></button>
                 </form>
             </div>
         @endsection

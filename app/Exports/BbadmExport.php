@@ -45,12 +45,18 @@ class BbadmExport implements FromView, ShouldAutoSize, WithHeadings, WithStyles
 
     public function styles(Worksheet $sheet)
     {
+        
         return [
+            
             // Style the first row as bold text.
             5    => ['font' => ['bold' => true]],
 
+            '1:3'  => ['alignment' => ['horizontal' =>  \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,]],
 
-            // // Styling a specific cell by coordinate.
+            '23'  => ['alignment' => ['horizontal' =>  \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,]],
+            
+            
+            // Styling a specific cell by coordinate.
             // '2' => ['font' => ['italic' => true]],
 
             // // Styling an entire column.

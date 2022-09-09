@@ -20,7 +20,7 @@
 
             </span>
         </div>
-    </div>
+    </div>    
     <div class="container-xxl flex-grow-1 container-p-y inline">
         <div class="row">
             <div class="col-lg-4 mb-4 col-1">
@@ -28,13 +28,34 @@
                     <div class="d-flex align-items-end row">
                         <div class="col-sm-12">
                             <div class="card-body">
-                                <h5 class="card-title text-primary">Buku Kas Harian</h5>
+                                <h5 class="card-title">Buku Kas Harian</h5>
                                 <p class="mb-4">
                                     Halaman ini berisi data Buku Kas Harian di PT. SAVANA MADANI TEKNOLOGI.
                                     Untuk melihat datanya klik Tombol dibawah.
                                 </p>
 
-                                <a href="/bks" class="btn btn-sm btn-outline-primary">Buku Kas Harian</a>
+                                <a href="/bks" class="btn btn-sm btn-primary">Buku Kas Harian</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Perolehan Proyek -->
+    <div class="container-xxl flex-grow-1 col-lg-5 col-md-7">
+        <div class="row">
+            <div class="col-lg-6 mb-4 col-1">
+                <div class="card">
+                    <div class="d-flex align-items-end row">
+                        <div class="col-sm-12">
+                            <div class="card-body">
+                                <h5 class="card-title">Biaya Marketing</h5>
+                                <p class="mb-4">
+                                    Halaman ini berisi data Biaya Marketing di PT. SAVANA MADANI TEKNOLOGI.
+                                    Untuk melihat datanya klik Tombol dibawah.
+                                </p>
+
+                                <a href="/bmarketing" class="btn btn-sm btn-primary">Biaya Marketing</a>
                             </div>
                         </div>
                     </div>
@@ -42,45 +63,24 @@
             </div>
 
             <!-- Perolehan Proyek -->
-            <div class="container-xxl flex-grow-1 col-lg-5 col-md-7">
+            <div class="container-xxl flex-grow-1 col-lg-6 col-md-7">
                 <div class="row">
-                    <div class="col-lg-6 mb-4 col-1">
+                    <div class="col-lg-12 mb-4 col-1">
                         <div class="card">
                             <div class="d-flex align-items-end row">
-                                <div class="col-sm-12">
+                                <div class="col-sm-13">
                                     <div class="card-body">
-                                        <h5 class="card-title text-primary">Biaya Marketing</h5>
+                                        <h5 class="card-title">Perolehan Proyek</h5>
                                         <p class="mb-4">
-                                            Halaman ini berisi data Biaya Marketing di PT. SAVANA MADANI TEKNOLOGI.
+                                            Halaman ini berisi data Perolehan Proyek di PT. SAVANA MADANI TEKNOLOGI.
                                             Untuk melihat datanya klik Tombol dibawah.
                                         </p>
 
-                                        <a href="/bmarketing" class="btn btn-sm btn-outline-primary">Biaya Marketing</a>
+                                        <a href="/pproyek" class="btn btn-sm btn-primary">Perolehan
+                                            Proyek</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Perolehan Proyek -->
-                    <div class="container-xxl flex-grow-1 col-lg-6 col-md-7">
-                        <div class="row">
-                            <div class="col-lg-12 mb-4 col-1">
-                                <div class="card">
-                                    <div class="d-flex align-items-end row">
-                                        <div class="col-sm-13">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-primary">Perolehan Proyek</h5>
-                                                <p class="mb-4">
-                                                    Halaman ini berisi data Perolehan Proyek di PT. SAVANA MADANI TEKNOLOGI.
-                                                    Untuk melihat datanya klik Tombol dibawah.
-                                                </p>
-
-                                                <a href="/pproyek" class="btn btn-sm btn-outline-primary">Perolehan
-                                                    Proyek</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endsection
+                @endsection

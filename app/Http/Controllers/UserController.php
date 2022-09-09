@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 // use Illuminate\Routing\Controller;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -59,22 +60,24 @@ class UserController extends Controller
             'remember_token' => Str::random(60),
         ]);
         Alert::toast('Data Berhasil diupdate!', 'success');
-        return redirect('user', ["title" => "Data User"]);
+        return redirect('user');
     }
 
     public function updatedataprofil(Request $request, $id)
 
     {
-        User::where('id', $id)->update([
+        $profile = User::where('id', $id)->update([
             'nidn' => $request->nidn,
             'name' => $request->name,
             'jenis_kelamin' => $request->jenis_kelamin,
             'email' => $request->email,
-            'password' => bcrypt(($request->password)),
-            'role' => $request->role,
+            'password' => Hash::make($request->password),
+            // 'role' => $request->role,
             'remember_token' => Str::random(60),
         ]);
-        return redirect('profil', ["title" => "Data User"]);
+
+        // dd($request->all());
+        return redirect('profil');
     }
     //     public function updateprofil (Request $request)
     // {

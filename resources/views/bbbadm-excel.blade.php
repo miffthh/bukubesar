@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
+
+<head>
 </head>
+
 <body>
-    <table>        
+    <table>
         <tr>
             <th colspan="8" rowspan="1"><strong>BUKU BESAR</strong></th>
         </tr>
@@ -45,20 +47,21 @@
                     $kredit = $row['kredit'];
                     $balance = $balance + $row['debit'] - $row['kredit'];
                 @endphp
-                <th><?= 'Rp. ' . number_format($balance, 0, ',', '.') ?></th>                
+                <th><?= 'Rp. ' . number_format($balance, 0, ',', '.') ?></th>
                 @php
-                $total += $balance;
-                $total_debit += $debit;
-                $total_kredit += $kredit;
+                    $total += $balance;
+                    $total_debit += $debit;
+                    $total_kredit += $kredit;
                 @endphp
             </tr>
-        @endforeach        
+        @endforeach
         <tr>
-            <th colspan="5"><strong>Total</strong></th>            
+            <th colspan="5"><strong>Total</strong></th>
             <th><strong><?= 'Rp. ' . number_format($total_debit, 0, ',', '.') ?></strong></th>
-            <th><strong><?= 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></strong></th>            
-            <th></th>            
+            <th><strong><?= 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></strong></th>
+            <th></th>
         </tr>
     </table>
 </body>
+
 </html>

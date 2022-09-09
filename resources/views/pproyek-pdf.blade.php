@@ -34,13 +34,12 @@
 </head>
 
 <body>
-    <div style="width: 50%; margin: center;" class="">
-        <h4>REKAPITULASI HARGA POKOK PODUKSI<<br>            
+    <h4 align="center">REKAPITULASI HARGA POKOK PODUKSI<<br>
             PEROLEHAN PROYEK <br>
-        PT. SAVANA MADANI TEKNOLOGI</h4>
+            PT. SAVANA MADANI TEKNOLOGI</h4>
     </div>
 
-    <table id="customers">        
+    <table id="customers">
         <tr>
             <th>No</th>
             <th>Tanggal</th>
@@ -68,8 +67,8 @@
             </tr>
         @endforeach
         <tr>
-        <th colspan="5"><strong>Total</strong></th>        
-        <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>        
+            <th colspan="5"><strong>Total</strong></th>
+            <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>
         </tr>
     </table>
 

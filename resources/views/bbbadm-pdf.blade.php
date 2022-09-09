@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <h4>BUKU BESAR <br>
+    <h4 align="center">BUKU BESAR <br>
         BIAYA ADMINISTRASI & UMUM <br>
         PT. SAVANA MADANI TEKNOLOGI</h4>
     <table id="customers">

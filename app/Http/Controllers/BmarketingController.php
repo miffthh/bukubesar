@@ -15,11 +15,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BmarketingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bm = BMarketing::with('akun')->simplePaginate(15);
-
-        // Alert::success('Congrats', 'Data Berhasil ditambahkan');
+        if ($request->has('search')) {
+            $bm = BMarketing::where('kode_akun', 'LIKE', '%' . $request->search . '%')->simplePaginate(15);
+        } else {
+            $bm = BMarketing::with('akun')->simplePaginate(15);
+        }
 
         return view('bmarketing', compact('bm'), ["title" => "Biaya Marketing"]);
     }
@@ -30,7 +32,6 @@ class BmarketingController extends Controller
     }
     public function insertdatabm(Request $request)
     {
-        // dd($request->all());
         BMarketing::create([
             'tanggal' => $request->tanggal,
             'kode_akun' => $request->kode_akun,
@@ -46,8 +47,6 @@ class BmarketingController extends Controller
     {
         $bm = BMarketing::find($id);
         $ak = akun::all();
-        // $bm = BMarketing::where('kode_marketing',$kode_marketing)->first();
-        // dd($pp);        
         return view('tampilkandatabm', compact('bm', 'ak'), ["title" => "Biaya Marketing"]);
     }
 
@@ -58,7 +57,7 @@ class BmarketingController extends Controller
         $bm->update($request->all());
         Alert::toast('Data Berhasil diupdate!', 'success');
         return redirect()->route('bmarketing');
-    }    
+    }
 
     public function delete($id)
     {
@@ -71,8 +70,6 @@ class BmarketingController extends Controller
     public function exporttpdf()
     {
         $bm = BMarketing::all();
-
-        // view()->share('pp', $pp);
         $pdf = PDF::loadview('bmarketing-pdf', compact('bm'));
 
         return $pdf->stream('bm.pdf');
@@ -89,7 +86,6 @@ class BmarketingController extends Controller
         $bm = BMarketing::where('tanggal', '>=', date('Y-m-d', strtotime($request->tgl_mulai)))
             ->where('tanggal', '<=', date('Y-m-d', strtotime($request->tgl_selesai)))
             ->get();
-        // dd($bm);
         $pdf = PDF::loadview('bmarketing-pdf', compact('bm'), ["title" => "Biaya Marketing"]);
 
         return $pdf->stream('bm.pdf');

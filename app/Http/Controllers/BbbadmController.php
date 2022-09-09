@@ -15,9 +15,14 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BbbadmController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $bb = Bbbadm::with('akun')->simplePaginate(15);
+        if ($request->has('search')) {
+            $bb = Bbbadm::where('nama_perkiraan', 'LIKE', '%' . $request->search . '%')->simplePaginate(15);
+        } else {
+            $bb = Bbbadm::with('akun')->simplePaginate(15);
+        }
+
         return view('bbbadm', compact('bb'), ["title" => "Buku Besar Biaya Adm & Umum"]);
     }
 
@@ -25,7 +30,6 @@ class BbbadmController extends Controller
     {
         $bb = Bbbadm::with('akun')->get();
         dd($bb);
-        // return view('badm',compact('bb'));
     }
 
     public function tambahdatabbbadm()
@@ -36,8 +40,6 @@ class BbbadmController extends Controller
 
     public function insertdatabbbadm(Request $request)
     {
-        // bks::create($request->all());
-
         $kredit = $request->kredit;
         $debit = $request->debit;
 
@@ -112,7 +114,7 @@ class BbbadmController extends Controller
 
         return $pdf->stream('bb.pdf');
     }
-    
+
     public function expoortexcel()
     {
         return Excel::download(new BbadmExport, 'DataBukuBesarAdm&Umum.xlsx');
@@ -123,9 +125,7 @@ class BbbadmController extends Controller
         $tgl_mulai = date('Y-m-d', strtotime($request->tgl_mulai));
         $tgl_akhir = date('Y-m-d', strtotime($request->tgl_selesai));
         $bb = Bbbadm::whereBetween('tanggal', [$tgl_mulai, $tgl_akhir])->get();
-        // $bb = Bbbadm::where('tanggal','>=',$tgl_mulai) -> where('tanggal','<=',$tgl_akhir)->get();
         $ak = akun::all();
-        // $bb=Bbbadm::with('akun')->get();        
 
         return view('bbbadm', compact('bb', 'ak'));
     }

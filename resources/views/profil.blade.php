@@ -1,12 +1,12 @@
 @extends('layout.template')
 
 @section('container')
-    <div class="container mt-3">
+    <div class="container">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body mt-2">
                 <h1> Halaman Edit Profil </h1>
                 <hr class="my-0" />
-                <div class="card-body">
+                <div class="card-body mt-2">
                     <form action="/updatedataprofil/{{ Auth::user()->id }}" method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{ Auth::user()->id }}">
@@ -46,12 +46,11 @@
                                 <label class="mt-1"><i>*Jika tidak ingin mengubah Password maka kosongkan saja.<i></label>
                             </div>
                             <div class="mt-2">
-                                <button type="submit" class="btn btn-primary me-2">Update</button>
-                                <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                                <button type="submit" class="btn btn-success me-2"><i class="bi bi-upload"></i> Update</button>
+                                <button type="reset" class="btn btn-danger me-2"> <i class="bi bi-x-square"></i> Cancel</button>
                             </div>
                     </form>
-                </div>
-                <!-- /Account -->
+                </div>                
             </div>
         </div>
     </div>

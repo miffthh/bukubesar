@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <h4>BUKU KAS HARIAN <br>
+    <h4 align="center">BUKU KAS HARIAN <br>
         PT. SAVANA MADANI TEKNOLOGI</h4>
     <table id="customers">
         <tr>
@@ -82,17 +82,17 @@
                 ?>
 
             </tr>
-        @endforeach        
+        @endforeach
         <tr>
             <th colspan="5"><strong>Total</strong></th>
             {{-- <th class="text-center"><strong> Total </strong></th> --}}
             <th><strong><?= 'Rp. ' . number_format($total_debit, 0, ',', '.') ?></strong></th>
             <th><strong><?= 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></strong></th>
             {{-- <th class="text-center">Rp. {{ $total }}</th> --}}
-            <th></th>        
             <th></th>
             <th></th>
-            <th></th>    
+            <th></th>
+            <th></th>
         </tr>
 
     </table>

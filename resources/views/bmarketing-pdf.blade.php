@@ -35,19 +35,19 @@
 
 <body>
 
-    <h4>REKAPITULASI BUKU BESAR <br>
+    <h4 align="center">REKAPITULASI BUKU BESAR <br>
         BIAYA MARKETING PROYEK <br>
         PT. SAVANA MADANI TEKNOLOGI</h4>
 
     <table id="customers">
-        <thead class="table-info">            
+        <thead class="table-info">
             <tr align="center">
                 <th>No</th>
                 <th>Tanggal</th>
                 <th>Kode ACC</th>
                 <th>Transaksi</th>
                 <th>Marketing Proyek</th>
-                <th>Biaya</th>            
+                <th>Biaya</th>
             </tr>
         </thead>
         @php
@@ -68,8 +68,8 @@
             </tr>
         @endforeach
         <tr>
-        <th colspan="5"><strong>Total</strong></th>    
-        <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>        
+            <th colspan="5"><strong>Total</strong></th>
+            <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>
         </tr>
     </table>
 
