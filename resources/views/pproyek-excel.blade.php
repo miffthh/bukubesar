@@ -46,12 +46,12 @@
         </tr>
         <tr></tr>
         <tr>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>Kode Akun</th>
-            <th>Transaksi</th>
-            <th>Kode Proyek</th>
-            <th>Biaya Proyek</th>
+            <th align="center">No</th>
+            <th align="center">Tanggal</th>
+            <th align="center">Kode Akun</th>
+            <th align="center">Transaksi</th>
+            <th align="center">Kode Proyek</th>
+            <th align="center">Biaya Proyek</th>
         </tr>
         @php
             $no = 1;
@@ -59,12 +59,12 @@
         @endphp
         @foreach ($pp as $row)
             <tr>
-                <th scope="row">{{ $no++ }}</th>
-                <th>{{ $row->tanggal }}</th>
-                <th>{{ $row->akun->kode_akun }}</th>
-                <th>{{ $row->transaksi }}</th>
-                <th>{{ $row->dproyek->kode_proyek }}</th>
-                <th><?= 'Rp. ' . number_format($row->biaya_proyek, 0, ',', '.') ?></th>
+                <td scope="row">{{ $no++ }}</td>
+                <td>{{ $row->tanggal }}</td>
+                <td>{{ $row->akun->kode_akun }}</td>
+                <td>{{ $row->transaksi }}</td>
+                <td>{{ $row->dproyek->kode_proyek }}</td>
+                <td><?= 'Rp. ' . number_format($row->biaya_proyek, 0, ',', '.') ?></td>
                 <?php
                 $total += $row['biaya_proyek'];
                 ?>
@@ -72,7 +72,7 @@
             </tr>
         @endforeach
         <tr>
-            <th colspan="5"><strong>Total</strong></th>
+            <th align="center" colspan="5"><strong>Total</strong></th>
             <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>
         </tr>
     </table>

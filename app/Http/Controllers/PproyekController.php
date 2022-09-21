@@ -31,8 +31,9 @@ class PproyekController extends Controller
             $pp = pproyek::with('akun', 'dproyek')->simplePaginate(15);
         }
 
+        $total_biaya = pproyek::sum('biaya_proyek');        
 
-        return view('pproyek', compact('pp'), ["title" => "Perolehan Proyek"]);
+        return view('pproyek', compact('pp','total_biaya'), ["title" => "Perolehan Proyek"]);
     }
     public function tambahdatapproyek()
     {

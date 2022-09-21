@@ -32,19 +32,19 @@
                         @endphp
                         @foreach ($user as $row)
                             <tr align="center">
-                                <th cscope="row">{{ $no++ }}</th>
-                                <th>{{ $row->nidn }}</th>
-                                <th>{{ $row->name }}</th>
-                                <th>{{ $row->jenis_kelamin }}</th>
-                                <th>{{ $row->email }}</th>
-                                {{-- <th>{{ $row->password }}</th> --}}
-                                <th>{{ $row->role }}</th>
-                                <th>
+                                <td cscope="row">{{ $no++ }}</td>
+                                <td>{{ $row->nidn }}</td>
+                                <td>{{ $row->name }}</td>
+                                <td>{{ $row->jenis_kelamin }}</td>
+                                <td>{{ $row->email }}</td>
+                                {{-- <td>{{ $row->password }}</td> --}}
+                                <td>{{ $row->role }}</td>
+                                <td>
                                     <a href="{{ url('tampilkandatauser/' . $row->id) }}" class="btn btn-info btn-sm"><i
                                             class="bi bi-pencil-square"></i> Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $row->id }}"><i
                                             class="bi bi-trash3"></i> Hapus</a>
-                                </th>
+                                </td>
                         @endforeach
                     </tbody>
                 </table>

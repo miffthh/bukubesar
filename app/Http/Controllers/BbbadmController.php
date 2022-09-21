@@ -23,14 +23,11 @@ class BbbadmController extends Controller
             $bb = Bbbadm::with('akun')->simplePaginate(15);
         }
 
-        return view('bbbadm', compact('bb'), ["title" => "Buku Besar Biaya Adm & Umum"]);
+        $total_debit = Bbbadm::sum('debit');
+        $total_kredit = Bbbadm::sum('kredit');
+        return view('bbbadm', compact('bb','total_debit','total_kredit'), ["title" => "Buku Besar Biaya Adm & Umum"]);
     }
 
-    public function indexx()
-    {
-        $bb = Bbbadm::with('akun')->get();
-        dd($bb);
-    }
 
     public function tambahdatabbbadm()
     {
@@ -45,7 +42,7 @@ class BbbadmController extends Controller
 
         $balance_baru = Bbbadm::latest()->first();
         if ($balance_baru != null) {
-            $balance = $balance_baru->balance + $kredit - $debit;
+            $balance = $balance_baru->balance + $debit - $kredit;
         } else {
             $balance = $kredit - $debit;
         }
@@ -127,6 +124,8 @@ class BbbadmController extends Controller
         $bb = Bbbadm::whereBetween('tanggal', [$tgl_mulai, $tgl_akhir])->get();
         $ak = akun::all();
 
-        return view('bbbadm', compact('bb', 'ak'));
+        return view('bbbadm', compact('bb', 'ak'), ["title" => "Buku Besar Biaya Adm & Umum"]);
     }
+
+    
 }

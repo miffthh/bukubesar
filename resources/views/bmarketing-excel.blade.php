@@ -48,34 +48,36 @@
             </tr>
             <tr></tr>
             <tr>
-                <th>No</th>
-                <th>Tanggal</th>
-                <th>Kode ACC</th>
-                <th>Transaksi</th>
-                <th>Marketing Proyek</th>
-                <th>Biaya</th>
+                <th align="center">No</th>
+                <th align="center">Tanggal</th>
+                <th align="center">Kode ACC</th>
+                <th align="center">Transaksi</th>
+                <th align="center">Marketing Proyek</th>
+                <th align="center">Biaya</th>
             </tr>
         </thead>
         @php
-            $no = 1;
+        $no = 1;
             $total = 0;
         @endphp
         @foreach ($bm as $row)
-            <tr align="center">
-                <th scope="row">{{ $no++ }}</th>
-                <th>{{ $row->tanggal }}</th>
-                <th>{{ $row->kode_akun }}</th>
-                <th>{{ $row->transaksi }}</th>
+            <tr>
+                <td scope="row">{{ $no++ }}</td>
+                <td>{{ $row->tanggal }}</td>
+                <td>{{ $row->kode_akun }}</td>
+                <td>{{ $row->transaksi }}</td>
                 <th>{{ $row->marketing_proyek }}</th>
-                <th><?= 'Rp. ' . number_format($row->biaya, 0, ',', '.') ?></th>
-                <?php
-                $total += $row['biaya'];
-                ?>
+                <td><?= 'Rp. ' . number_format($row->biaya, 0, ',', '.') ?></td>
+                @php
+                    $total += $row['biaya'];
+                @endphp                
+            <tr>
+                <th align="center" colspan="5"><strong>Total</strong></th>
+                <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>
             </tr>
         @endforeach
         <tr>
-            <th colspan="5"><strong>Total</strong></th>
-            <th class="text-center"><strong><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></strong></th>
+
         </tr>
     </table>
 

@@ -13,7 +13,8 @@ class CreateDataProyeksTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_proyeks', function (Blueprint $table) {            
+        Schema::create('data_proyeks', function (Blueprint $table) {    
+            $table->id();
             $table->char('kode_proyek');
             $table->string('nama_proyek');
             $table->char('lokasi_proyek');

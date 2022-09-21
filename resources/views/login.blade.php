@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+    <title>Buku Besar - {{ $title }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -73,9 +73,12 @@
 
                                         <div class="col-12 mt-3">
                                             <label for="floatingPassword" class="form-label">Password</label>
+                                            <div class="input-group">
+                                            <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-key"></i></span>
                                             <input type="password" name="password" class="form-control"
                                                 id="floatingPassword" required>
                                             <div class="invalid-feedback">Please enter your password!</div>
+                                        </div>
                                         </div>
                                         <div class="col-12 mt-3">
                                             <button class="btn btn-primary w-100" type="submit">Login</button>

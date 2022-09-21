@@ -79,25 +79,17 @@
     <script src="../NiceAdmin/assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="../NiceAdmin/assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="../NiceAdmin/assets/vendor/php-email-form/validate.js"></script>
-
-    {{-- <script src="../NiceAdmin/assets/js/jquery-1.11.2.min.js"></script> --}}
+    
 
     <!-- Template Main JS File -->
     <script src="../NiceAdmin/assets/js/main.js"></script>
     {{-- jquery --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    {{-- <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script> --}}
-    {{-- <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
 
 
 
     {{-- sweetalert --}}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    {{-- Ajax --}}
-    {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script> --}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>    
 
 
     @stack('append-script')

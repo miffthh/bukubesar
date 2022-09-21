@@ -73,14 +73,14 @@
                         <div class="form-group">
                             <label type="text" id="" class="mt-3">Nama Perkiraan</label>
                             <input type="text" class="form-control" name="nama_perkiraan" id="nama_perkiraan"
-                                value="{{ old('nama_perkiraan', $bk->nama_perkiraan) }}" />
+                                value="{{ old('nama_perkiraan', $bk->nama_perkiraan) }}" readonly />
                         </div>
                     </div>
                     <div>
                         <div class="form-group">
                             <label type="text" id="" class="mt-3">Nama Group</label>
                             <input type="text" class="form-control" name="nama_group" id="nama_group"
-                                value="{{ old('nama_group', $bk->nama_group) }}" />
+                                value="{{ old('nama_group', $bk->nama_group) }}" readonly />
                         </div>
                     </div>
                     <button type="submit" class="btn btn-success mt-3"><i class="bi bi-upload"></i> Update</button>

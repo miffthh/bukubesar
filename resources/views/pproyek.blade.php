@@ -26,8 +26,11 @@
         <div class="row g-3 align-items-center d-flex flex-row-reverse mb-3">
             <div class="col-auto">
                 <form action="/pproyek" method="get">
+                    <div class="input-group">
+                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-search"></i></span>
                     <input type="search" class="form-control" name="search" id="exampleFormControlInput1"
                         placeholder="Ketik kode akun">
+                </div>
                 </form>
             </div>
         </div>
@@ -60,27 +63,27 @@
 
                     @foreach ($pp as $index => $row)
                         <tr align="center">
-                            <th scope="row">{{ $index + $pp->firstItem() }}</th>
-                            <th>{{ $row->tanggal }}</th>
-                            <th>{{ $row->akun->kode_akun }}</th>
-                            <th>{{ $row->transaksi }}</th>
-                            <th>{{ $row->dproyek->kode_proyek }}</th>
-                            <th><?= 'Rp. ' . number_format($row->biaya_proyek, 0, ',', '.') ?></th>
+                            <td scope="row">{{ $index + $pp->firstItem() }}</td>
+                            <td>{{ $row->tanggal }}</td>
+                            <td>{{ $row->akun->kode_akun }}</td>
+                            <td>{{ $row->transaksi }}</td>
+                            <td>{{ $row->dproyek->kode_proyek }}</td>
+                            <td><?= 'Rp. ' . number_format($row->biaya_proyek, 0, ',', '.') ?></td>
                             <?php
                             $total += $row['biaya_proyek'];
                             ?>
                             @if (auth()->user()->role == 'Admin')
-                                <th>
+                                <td>
                                     <a href="{{ url('tampilkandatapproyek/' . $row->id) }}" class="btn btn-info btn-sm"><i
                                             class="bi bi-pencil-square"></i> Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $row->id }}"><i
                                             class="bi bi-trash3"></i> Hapus</a>
-                                </th>
+                                </td>
                             @endif
                         </tr>
                     @endforeach
                     <th colspan="5" class="text-center"><strong>Total</strong></th>
-                    <th class="text-center"><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></th>
+                    <th class="text-center"><?= 'Rp. ' . number_format($total_biaya, 0, ',', '.') ?></th>
                     <th></th>
         </div>
         </tbody>

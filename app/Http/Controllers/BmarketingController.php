@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\BmarketingExport;
 use PDF;
 use App\Models\Akun;
 use App\Models\BMarketing;
 use Illuminate\Http\Request;
 use App\Exports\PproyekExport;
+use App\Exports\BmarketingExport;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -23,7 +24,9 @@ class BmarketingController extends Controller
             $bm = BMarketing::with('akun')->simplePaginate(15);
         }
 
-        return view('bmarketing', compact('bm'), ["title" => "Biaya Marketing"]);
+        $total_biaya = BMarketing::sum('biaya');
+
+        return view('bmarketing', compact('bm', 'total_biaya'), ["title" => "Biaya Marketing"]);
     }
     public function tambahdatabm()
     {
@@ -103,6 +106,21 @@ class BmarketingController extends Controller
         $bm = BMarketing::whereBetween('tanggal', [$tgl_mulai, $tgl_selesai])->get();
         $ak = akun::all();
 
-        return view('bmarketing', compact('bm', 'ak'));
+        return view('bmarketing-ex', compact('bm', 'ak'), ["title" => "Biaya Marketing"]);
+    }
+
+    public function indeex()
+    {
+        $bm = BMarketing::all();
+        return view('bmarketing-ex', compact('bm'), ["title" => "Biaya Marketing"]);
+    }
+
+    public function liat()
+    {
+        // $coulmns = DB::getSchemaBuilder()->getColumnListing('table_name');
+        $collection = collect(['MP11124','MP11126','MP11127','MP111128']);
+
+        // $items = BMarketing::table('bmarketings')->all();
+        // return view("bmarketing-ex", ["items" => $items, "columns" => $coulmns]);
     }
 }

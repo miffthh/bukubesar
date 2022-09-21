@@ -17,14 +17,14 @@
         </tr>
         <tr></tr>
         <tr>
-            <th>No</th>
-            <th>Tanggal</th>
-            <th>Nama Perkiraan</th>
-            <th>Reff</th>
-            <th>Kode Akun</th>
-            <th>Debit</th>
-            <th>Kredit</th>
-            <th>Balance</th>
+            <th align="center">No</th>
+            <th align="center">Tanggal</th>
+            <th align="center">Nama Perkiraan</th>
+            <th align="center">Reff</th>
+            <th align="center">Kode Akun</th>
+            <th align="center">Debit</th>
+            <th align="center">Kredit</th>
+            <th align="center">Balance</th>
         </tr>
         @php
             $no = 1;
@@ -34,20 +34,19 @@
             $balance = 0;
         @endphp
         @foreach ($bb as $row)
-            <tr align="center">
-                <th scope="row">{{ $no++ }}</th>
-                <th>{{ $row->tanggal }}</th>
-                <th>{{ $row->nama_perkiraan }} </th>
-                <th>{{ $row->reff }}</th>
-                <th>{{ $row->kode_akun }}</th>
-                <th><?= 'Rp. ' . number_format($row->debit, 0, ',', '.') ?></th>
-                <th><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></th>
+            <tr>
+                <td scope="row">{{ $no++ }}</td>
+                <td>{{ $row->tanggal }}</td>
+                <td>{{ $row->nama_perkiraan }} </td>
+                <td>{{ $row->reff }}</td>
+                <td>{{ $row->kode_akun }}</td>
+                <td><?= 'Rp. ' . number_format($row->debit, 0, ',', '.') ?></td>
+                <td><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></td>
                 @php
                     $debit = $row['debit'];
-                    $kredit = $row['kredit'];
-                    $balance = $balance + $row['debit'] - $row['kredit'];
+                    $kredit = $row['kredit'];                    
                 @endphp
-                <th><?= 'Rp. ' . number_format($balance, 0, ',', '.') ?></th>
+                <td><?= 'Rp. ' . number_format($row->balance, 0, ',', '.') ?></td>
                 @php
                     $total += $balance;
                     $total_debit += $debit;
@@ -56,7 +55,7 @@
             </tr>
         @endforeach
         <tr>
-            <th colspan="5"><strong>Total</strong></th>
+            <th align="center" colspan="5"><strong>Total</strong></th>
             <th><strong><?= 'Rp. ' . number_format($total_debit, 0, ',', '.') ?></strong></th>
             <th><strong><?= 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></strong></th>
             <th></th>

@@ -2,7 +2,7 @@
 
     <div class="d-flex align-items-center justify-content-between">
         <a href="/" class=" d-flex align-items-center">
-            <img src="../img/LOGOp-.png" alt="" width="255" height="auto">
+            <img src="../img/LOGOp-.png" alt="" width="200" height="auto">
             {{-- <span class="d-none d-lg-block">Samalogi</span> --}}
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>

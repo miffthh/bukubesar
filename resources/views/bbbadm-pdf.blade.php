@@ -57,19 +57,18 @@
         @endphp
         @foreach ($bb as $row)
             <tr align="center">
-                <th scope="row">{{ $no++ }}</th>
-                <th>{{ $row->tanggal }}</th>
-                <th>{{ $row->nama_perkiraan }} </th>
-                <th>{{ $row->reff }}</th>
-                <th>{{ $row->kode_akun }}</th>
-                <th><?= 'Rp. ' . number_format($row->debit, 0, ',', '.') ?></th>
-                <th><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></th>
+                <td scope="row">{{ $no++ }}</td>
+                <td>{{ $row->tanggal }}</td>
+                <td>{{ $row->nama_perkiraan }} </td>
+                <td>{{ $row->reff }}</td>
+                <td>{{ $row->kode_akun }}</td>
+                <td><?= 'Rp. ' . number_format($row->debit, 0, ',', '.') ?></td>
+                <td><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></td>
                 @php
                     $debit = $row['debit'];
-                    $kredit = $row['kredit'];
-                    $balance = $balance + $row['debit'] - $row['kredit'];
+                    $kredit = $row['kredit'];                    
                 @endphp
-                <th><?= 'Rp. ' . number_format($balance, 0, ',', '.') ?></th>
+                <td><?= 'Rp. ' . number_format($row->balance, 0, ',', '.') ?></td>
                 @php
                     $total += $balance;
                     $total_debit += $debit;

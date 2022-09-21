@@ -13,8 +13,8 @@
                 <div class="mb-4">
                     <div align="fluid">
                         <label for="exampleInputEmail1" class="mt-3">Kode Akun</label>
-                        <input type="text" name="kode_akun" class="form-control @error('kode_akun') is-invalid @enderror"
-                            id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('kode_akun') }}" autofocus>
+                        <input type="number" name="kode_akun" class="form-control @error('kode_akun') is-invalid @enderror"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('kode_akun') }}" required autofocus>
                         @error('kode_akun')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -24,7 +24,7 @@
                     <label for="exampleInputEmail1" class="mt-3">Nama Perkiraan</label>
                     <input type="text" name="nama_perkiraan"
                         class="form-control @error('nama_perkiraan') is-invalid @enderror" id="exampleInputEmail1"
-                        aria-describedby="emailHelp" value="{{ old('nama_perkiraan') }}" autofocus>
+                        aria-describedby="emailHelp" value="{{ old('nama_perkiraan') }}" required>
                     @error('nama_perkiraan')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -32,7 +32,7 @@
                 <div class="mb-4">
                     <label for="exampleInputEmail1" class="mt-3">Nama Group</label>
                     <input type="text" name="nama_group" class="form-control @error('nama_group') is-invalid @enderror"
-                        id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('nama_group') }}" autofocus>
+                        id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('nama_group') }}" required>
                     @error('nama_group')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

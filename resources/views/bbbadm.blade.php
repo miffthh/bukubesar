@@ -17,14 +17,31 @@
         </a>
         <a href="/expoortexcel" target="_blank" class="btn btn-success btn-sm"><i class="bi bi-file-excel"></i> Export
             Excel</a>
-        <a href="/bbbadm" class="btn btn-info btn-sm"><i class="bi bi-trash3"></i> Refresh</a>
+        <a href="/bbbadm" class="btn btn-info btn-sm"><i class="bi bi-arrow-repeat"></i> Refresh</a>
+
+        <!-- Filter Tanggal -->
+        {{-- <div class="container col-lg-8 md-4 mt-3 row g-3">
+            <form action="/periode" method="get" class="d-flex">
+                <label for="tgl_mulai">From</label>
+                <input type="date" name="tgl_mulai" id="tgl_mulai" class="form-control datepicker">
+                <label for="tgl_selesai" class="ms-2">To</label>
+                <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control datepicker">
+
+                <button type="submit" name="filter_tgl" class="btn btn-success btn-sm datpicker ms-2"><i
+                        class="bi bi-printer"></i> Filter</button>
+            </form>
+        </div> --}}
+        <!-- Filter Tanggal -->
 
         {{-- Search Bar --}}
         <div class="search-bar row g-3 d-flex flex-row-reverse mb-3">
-            <div class="col-auto">
+            <div class="col-auto">                
                 <form class="search-form" action="/bbbadm" method="get">
+                    <div class="input-group">
+                    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-search"></i></span>
                     <input type="search" class="form-control" name="search" id="exampleFormControlInput1"
                         placeholder="Ketik nama perkiraan">
+                </div>
                 </form>
             </div>
         </div>
@@ -52,36 +69,28 @@
                 <tbody>
                     @php
                         $no = 1;
-                        $total = 0;
-                        $total_debit = 0;
-                        $total_kredit = 0;
                     @endphp
                     @foreach ($bb as $index => $row)
                         <tr align="center">
-                            <th scope="row">{{ $index + $bb->firstItem() }}</th>
-                            <th>{{ $row->tanggal }}</th>
-                            <th>{{ $row->nama_perkiraan }} </th>
-                            <th>{{ $row->reff }}</th>
-                            <th>{{ $row->kode_akun }}</th>
-                            <th><?= 'Rp. ' . number_format($row->debit, 0, ',', '.') ?></th>
-                            <th><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></th>
+                            <td scope="row">{{ $index + $bb->firstItem() }}</td>
+                            <td>{{ $row->tanggal }}</td>
+                            <td>{{ $row->nama_perkiraan }} </td>
+                            <td>{{ $row->reff }}</td>
+                            <td>{{ $row->kode_akun }}</td>
+                            <td><?= 'Rp. ' . number_format($row->debit, 0, ',', '.') ?></td>
+                            <td><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></td>
                             @php
                                 $debit = $row['debit'];
                                 $kredit = $row['kredit'];
                             @endphp
-                            <th><?= 'Rp. ' . number_format($row->balance, 0, ',', '.') ?></th>
-                            <?php
-                            // $total += $balance;
-                            $total_debit += $debit;
-                            $total_kredit += $kredit;
-                            ?>
+                            <td><?= 'Rp. ' . number_format($row->balance, 0, ',', '.') ?></td>
                             @if (auth()->user()->role == 'Admin')
-                                <th>
+                                <td>
                                     <a href="{{ url('tampilkandatabbbadm/' . $row->id) }}" class="btn btn-info btn-sm"> <i
                                             class="bi bi-pencil-square"></i> Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm delete" data-id="{{ $row->id }}"> <i
                                             class="bi bi-trash3"></i> Hapus</a>
-                                </th>
+                                </td>
                             @endif
                         </tr>
                     @endforeach
@@ -90,11 +99,8 @@
                     <th class="text-center"><?= 'Rp. ' . number_format($total_debit, 0, ',', '.') ?></th>
                     <th class="text-center"><?= 'Rp. ' . number_format($total_kredit, 0, ',', '.') ?></th>
                     {{-- <th class="text-center">Rp. {{ $total }}</th> --}}
-                    <th>
-                    <th>
-                    <th>
-                    <th>
-                    <th>
+                    <td>
+                                                                                
 
                 </tbody>
             </table>

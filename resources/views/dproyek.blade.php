@@ -17,17 +17,22 @@
                 <table class="table table-sm">
                     <thead class="table-info" id="records">
                         <tr align="center">
+                            <th cscope="row"> No</th>
                             <th>Kode Proyek</th>
                             <th>Nama Proyek</th>
                             <th>User/Lokasi Proyek</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $no = 1;
+                        @endphp
                         @foreach ($dp as $row)
                             <tr align="center">
-                                <th>{{ $row->kode_proyek }}</th>
-                                <th>{{ $row->nama_proyek }}</th>
-                                <th>{{ $row->lokasi_proyek }}</th>
+                                <td>{{ $row->id  }}</td>
+                                <td>{{ $row->kode_proyek }}</td>
+                                <td>{{ $row->nama_proyek }}</td>
+                                <td>{{ $row->lokasi_proyek }}</td>
                             </tr>
                         @endforeach
                     </tbody>

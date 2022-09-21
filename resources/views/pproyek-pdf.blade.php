@@ -54,12 +54,12 @@
         @endphp
         @foreach ($pp as $row)
             <tr>
-                <th scope="row">{{ $no++ }}</th>
-                <th>{{ $row->tanggal }}</th>
-                <th>{{ $row->akun->kode_akun }}</th>
-                <th>{{ $row->transaksi }}</th>
-                <th>{{ $row->dproyek->kode_proyek }}</th>
-                <th><?= 'Rp. ' . number_format($row->biaya_proyek, 0, ',', '.') ?></th>
+                <td scope="row">{{ $no++ }}</td>
+                <td>{{ $row->tanggal }}</td>
+                <td>{{ $row->akun->kode_akun }}</td>
+                <td>{{ $row->transaksi }}</td>
+                <td>{{ $row->dproyek->kode_proyek }}</td>
+                <td><?= 'Rp. ' . number_format($row->biaya_proyek, 0, ',', '.') ?></td>
                 <?php
                 $total += $row['biaya_proyek'];
                 ?>

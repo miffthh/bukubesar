@@ -137,8 +137,12 @@ Route::group(['middleware' => ['auth','hakakses:Admin,Operator']], function(){
     Route::get('/cetakpdf', [BmarketingController::class, 'cetakpdf'])->name('cetakpdf')->middleware('auth');
     //Export Excel
     Route::get('/exporttexcel', [BmarketingController::class, 'exporttexcel'])->name('exporttexcel')->middleware('auth');
+    Route::get('/indeex', [BmarketingController::class, 'indeex'])->name('indeex')->middleware('auth');
+    Route::get('/liat', [BmarketingController::class, 'liat'])->name('liat')->middleware('auth');
+    
     //Filter Tanggal
     Route::get('/periodeee', [BmarketingController::class, 'periodeee'])->name('periodeee')->middleware('auth');    
+
 
     //Buku Kas Harian
     Route::get('/bks', [BksController::class, 'index'])->name('bks')->middleware('auth');

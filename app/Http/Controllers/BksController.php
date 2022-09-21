@@ -22,7 +22,11 @@ class BksController extends Controller
         } else {
             $bk = Bks::with('akun', 'dproyek')->simplePaginate(15);
         }
-        return view('bks', compact('bk'), ["title" => "Buku Kas Harian"]);
+
+        $total_debit = Bks::sum('debit');
+        $total_kredit = Bks::sum('kredit');
+        // dd($total);
+        return view('bks', compact('bk','total_debit','total_kredit'), ["title" => "Buku Kas Harian"]);
     }
 
     public function tambahdatabks()

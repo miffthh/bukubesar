@@ -8,8 +8,7 @@
                 <hr>
             </div>
         </div>
-    </div>
-    <div class="row">
+    </div>    
         <div class="container mt-1">
             <div class="container col-lg-8 md-4 mt-3">
                 <form action="/cetakkkpdf" target="blank" method="get" class="d-flex">
@@ -22,4 +21,5 @@
                         class="btn btn-success datpicker ms-2"><i class="bi bi-printer"></i></button>
                 </form>
             </div>
+        </div>
         @endsection

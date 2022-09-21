@@ -17,6 +17,7 @@
                 <table class="table table-sm">
                     <thead class="table-info" id="records">
                         <tr align="center">
+                            <th cscope="row"> No</th>
                             <th>Kode Akun</th>
                             <th>Nama Perkiraan</th>
                             <th>Nama Group</th>
@@ -24,11 +25,15 @@
 
                     </thead>
                     <tbody>
+                        @php
+                            $no = 1;
+                        @endphp
                         @foreach ($data as $row)
                             <tr align="center">
-                                <th>{{ $row->kode_akun }}</th>
-                                <th>{{ $row->nama_perkiraan }}</th>
-                                <th>{{ $row->nama_group }}</th>
+                                <td scope="row">{{ $no++ }}</td>
+                                <td>{{ $row->kode_akun }}</td>
+                                <td>{{ $row->nama_perkiraan }}</td>
+                                <td>{{ $row->nama_group }}</td>
                             </tr>
                         @endforeach
                     </tbody>

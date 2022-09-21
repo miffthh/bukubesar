@@ -1,5 +1,4 @@
-@extends('layout.template
-')
+@extends('layout.template')
 
 @section('container')
         <div class="card">
@@ -19,14 +18,32 @@
             <a href="/exporttexcel" target="_blank" class="btn btn-success btn-sm"><i class="bi bi-file-excel"></i> Export
                 Excel </a>
             <a href="/bmarketing" class="btn btn-info btn-sm"><i class="bi bi-arrow-repeat"></i> Refresh</a>
+            {{-- <a href="/indeex" class="btn btn-info btn-sm"><i class="bi bi-arrow-repeat"></i> To Form</a> --}}
             
+            <!-- Filter Tanggal -->
+        {{-- <div class="container container col-lg-8 md-4 mt-3">
+            <form action="/periodeee" method="get" class="d-flex">
+                <label for="tgl_mulai">From</label>
+                <input type="date" name="tgl_mulai" id="tgl_mulai" class="form-control datepicker ms-2">
+                <label for="tgl_selesai" class="ms-4"> To</label>
+                <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control datepicker ms-2">
+
+                <button type="submit" name="filter_tgl" class="btn btn-success btn-sm datpicker ms-2"><i
+                        class="bi bi-printer"></i> Filter</button>
+            </form>
+        </div> --}}
+        <!-- Filter Tanggal -->
+
             <!-- Search Data -->
             <div class="row g-3 align-items-center d-flex flex-row-reverse mb-3">
                 <div class="col-auto">
                     <form action="/bmarketing" method="get">
-                        <input type="search" class="form-control" name="search" id="exampleFormControlInput1"
+                        <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-search"></i></span>
+                        <input type="search"  class="form-control" name="search" id="exampleFormControlInput1"
                             placeholder="Ketik kode akun">
-                    </form>
+                        </div>
+                        </form>
                 </div>
             </div>
         </div>
@@ -46,8 +63,7 @@
                                 @if (auth()->user()->role == 'Admin')
                                     <th>Aksi</th>
                                 @endif
-                            </tr>
-                            </tr>
+                            </tr>                            
                         </thead>
                         <tbody>
                             @php
@@ -56,27 +72,27 @@
                             @endphp
                             @foreach ($bm as $index => $row)
                                 <tr align="center">
-                                    <th scope="row">{{ $index + $bm->firstItem() }}</th>
-                                    <th>{{ $row->tanggal }}</th>
-                                    <th>{{ $row->kode_akun }}</th>
-                                    <th>{{ $row->transaksi }}</th>
-                                    <th>{{ $row->marketing_proyek }}</th>
-                                    <th><?= 'Rp. ' . number_format($row->biaya, 0, ',', '.') ?></th>
+                                    <td scope="row">{{ $index + $bm->firstItem() }}</td>
+                                    <td>{{ $row->tanggal }}</td>
+                                    <td>{{ $row->kode_akun }}</td>
+                                    <td>{{ $row->transaksi }}</td>
+                                    <td>{{ $row->marketing_proyek }}</td>
+                                    <td><?= 'Rp. ' . number_format($row->biaya, 0, ',', '.') ?></td>
                                     <?php
                                     $total += $row['biaya'];
                                     ?>
                                     @if (auth()->user()->role == 'Admin')
-                                        <th>
+                                        <td>
                                             <a href="{{ url('tampilkandatabm/' . $row->id) }}"
                                                 class="btn btn-info btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
                                             <a href="#" class="btn btn-danger btn-sm delete"
                                                 data-id="{{ $row->id }}"><i class="bi bi-trash3"></i> Hapus</a>
-                                        </th>
+                                        </td>
                                     @endif
                                 </tr>
                             @endforeach
                             <th colspan="5" class="text-center"><strong>Total</strong></th>
-                            <th class="text-center"><b><?= 'Rp. ' . number_format($total, 0, ',', '.') ?></b></th>
+                            <th class="text-center"><b><?= 'Rp. ' . number_format($total_biaya, 0, ',', '.') ?></b></th>
                             <th></th>
                         </tbody>
                     </table>
