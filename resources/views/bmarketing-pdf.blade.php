@@ -73,6 +73,12 @@
         </tr>
     </table>
 
+    <br>
+    <br>
+    <p style="font-size:21px" align="right">Staff Penanggung Jawab</p>
+    <br>
+    {{-- <br> --}}
+    <p style="font-size:20px" align="right"><b>{{ Auth::user()->name }}</b></p>
 </body>
 
 </html>

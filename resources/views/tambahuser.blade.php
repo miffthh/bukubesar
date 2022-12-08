@@ -11,7 +11,7 @@
             <form action="/tambahdatauser" method="post">
                 @csrf
                 <div class="mb-3 mt-3">
-                    <label for="floatingInput">NIDN</label>
+                    <label for="floatingInput">NIP</label>
                     <input type="text" class="form-control" name="nidn" id="floatingInput" placeholder="nidn" required autofocus>
                 </div>
                 <div class="mb-3">

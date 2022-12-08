@@ -5,6 +5,7 @@
     <style>
         #customers {
             font-family: Arial, Helvetica, sans-serif;
+            font-size: 11pt;
             border-collapse: collapse;
             width: 100%;
         }
@@ -68,7 +69,7 @@
                 <td><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></td>
                 @php
                     $debit = $row['debit'];
-                    $kredit = $row['kredit'];                    
+                    $kredit = $row['kredit'];
                 @endphp
                 <td><?= 'Rp. ' . number_format($row->balance, 0, ',', '.') ?></td>
                 <td>{{ $row->kode_proyek }}</td>
@@ -96,6 +97,12 @@
 
     </table>
 
+    <br>
+    <br>
+    <p style="font-size:21px" align="right">Staff Penanggung Jawab</p>
+    <br>
+    {{-- <br> --}}
+    <p style="font-size:20px" align="right"><b>{{ Auth::user()->name }}</b></p>
 </body>
 
 </html>

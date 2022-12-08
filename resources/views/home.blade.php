@@ -32,19 +32,6 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Biaya Marketing</h5>
-                    <p class="mb-4">
-                        Halaman ini berisi data Biaya Marketing di PT. SAVANA MADANI TEKNOLOGI.
-                        Untuk melihat datanya klik Tombol dibawah.
-                    </p>
-
-                    <div> <a href="/bmarketing" class="btn btn-primary btn-sm" style="background:#1C62AB;"><i class="bi bi-cash-coin"></i> Biaya Marketing </a></div>
-                </div>
-            </div>
-        </div>
 
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
             <div class="card">
@@ -63,8 +50,22 @@
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch ">
             <div class="card">
                 <div class="card-body">
+                    <h5 class="card-title">Biaya Marketing</h5>
+                    <p class="mb-4">
+                        Halaman ini berisi data Biaya Marketing di PT. SAVANA MADANI TEKNOLOGI.
+                        Untuk melihat datanya klik Tombol dibawah.
+                    </p>
+
+                    <div> <a href="/bmarketing" class="btn btn-primary btn-sm" style="background:#1C62AB;"><i class="bi bi-cash-coin"></i> Biaya Marketing </a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
                     <h5 class="card-title">Buku Kas Harian</h5>
-                    <p>Halaman ini berisi data Buku Kas Harian di PT. SAVANA MADANI TEKNOLOGI.
+                    <p class="mb-4">Halaman ini berisi data Buku Kas Harian di PT. SAVANA MADANI TEKNOLOGI.
                         Untuk melihat datanya klik Tombol dibawah.
                     </p>
                         <div> <a href="/bks" class="btn btn-primary btn-sm" style="background:#1C62AB;"><i class="bi bi-clipboard-data"></i> Buku Kas Harian </a></div>

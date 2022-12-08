@@ -19,7 +19,7 @@
                     <label for="tgl_selesai" class="ms-2">Sampai Tanggal</label>
                     <input type="date" name="tgl_selesai" id="tgl_selesai" class="form-control datepicker d-flex ms-2">
                     <button target="blank" type="submit" name="filter_tgl"
-                        class="btn btn-success datpicker ms-2"> <i class="bi bi-printer"></i></button>
+                        class="btn btn-primary datpicker ms-2"> <i class="bi bi-printer"></i></button>
                 </form>
             </div>
         @endsection

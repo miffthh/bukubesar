@@ -17,7 +17,7 @@
                     <thead class="table-info" id="records">
                         <tr align="center">
                             <th cscope="row"> No</th>
-                            <th>NIDN</th>
+                            <th>NIP</th>
                             <th>Name</th>
                             <th>Jenis Kelamin</th>
                             <th>Email</th>

@@ -66,7 +66,7 @@
                 <td><?= 'Rp. ' . number_format($row->kredit, 0, ',', '.') ?></td>
                 @php
                     $debit = $row['debit'];
-                    $kredit = $row['kredit'];                    
+                    $kredit = $row['kredit'];
                 @endphp
                 <td><?= 'Rp. ' . number_format($row->balance, 0, ',', '.') ?></td>
                 @php
@@ -85,6 +85,12 @@
 
     </table>
 
+    <br>
+    <br>
+    <p style="font-size:21px" align="right">Staff Penanggung Jawab</p>
+    <br>
+    {{-- <br> --}}
+    <p style="font-size:20px" align="right"><b>{{ Auth::user()->name }}</b></p>
 </body>
 
 </html>

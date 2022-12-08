@@ -11,7 +11,7 @@
                 <form action="/updatedatauser/{{ $user->id }}" method="post">
                     @csrf
                     <div class="mb-3 mt-3">
-                        <label for="floatingInput">NIDN</label>
+                        <label for="floatingInput">NIP</label>
                         <input type="text" class="form-control" name="nidn" id="floatingInput" placeholder="nidn"
                             value="{{ old('nidn', $user->nidn) }}" readonly>
                     </div>
